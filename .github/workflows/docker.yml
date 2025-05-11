@@ -35,7 +35,7 @@ jobs:
       name: Build Docker image
       uses: docker/build-push-action@v6
       with:
-        context: docker
+        context: ros2/docker
         load: true # Load the image into Docker environment
         tags: ${{ steps.meta.outputs.tags }}
         push: false
@@ -46,7 +46,7 @@ jobs:
       name: Push Docker image
       uses: docker/build-push-action@v6
       with:
-        context: docker
+        context: ros2/docker/
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         no-cache: true
