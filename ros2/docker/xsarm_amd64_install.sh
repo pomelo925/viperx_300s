@@ -4,6 +4,8 @@
 #
 # Install the Interbotix X-Series Arms packages and their dependencies.
 
+export DEBIAN_FRONTEND=noninteractive
+
 OFF='\033[0m'
 RED='\033[0;31m'
 GRN='\033[0;32m'
@@ -111,7 +113,7 @@ function validate_distro() {
       # For cases where it passes the first check but somehow fails the second check
       failed "Something went wrong. ROS_DISTRO_TO_INSTALL=$ROS_DISTRO_TO_INSTALL."
     fi
-    echo -e "${GRN}${BOLD}Chosen Version: ROS ${ROS_VERSION_TO_INSTALL} $ROS_DISTRO_TO_INSTALL${NORM}${OFF}"
+    echo -e "${GRN}${BOLD}Version: ROS ${ROS_VERSION_TO_INSTALL} $ROS_DISTRO_TO_INSTALL${NORM}${OFF}"
     return 0
   else
     failed "'$ROS_DISTRO_TO_INSTALL' is not a valid ROS Distribution. Choose one of: '${ALL_VALID_DISTROS[*]}'"

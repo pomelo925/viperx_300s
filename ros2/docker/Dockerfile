@@ -10,7 +10,9 @@ LABEL org.opencontainers.image.title="Docker Image of Interbotix ROS XSarms (Ubu
 LABEL org.opencontainers.image.authors="yoseph.huang@gmail.com"
 LABEL org.opencontainers.image.licenses="MIT"
 
-ARG DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Asia/Taipei
+
 SHELL ["/bin/bash", "-c"]
 
 
@@ -21,7 +23,7 @@ SHELL ["/bin/bash", "-c"]
 
 FROM base AS user
 
-ARG USERNAME=hrc
+ENV USERNAME=hrc
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
@@ -33,7 +35,7 @@ RUN groupadd --gid $USER_GID $USERNAME && \
     chmod 0440 /etc/sudoers.d/$USERNAME && \
     rm -rf /var/lib/apt/lists/*
 
-
+USER $USERNAME
 ################################################################################################
 # - Tool stage
 #   - Install required tools and clean up.

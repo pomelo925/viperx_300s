@@ -29,11 +29,11 @@ x-workspace-settings: &ws
     - /dev/shm:/dev/shm:rw
     # Udev rules 
     - /dev:/dev:rw
-    - /run/udev:/run/udev:ro
-    - /etc/udev:/etc/udev:ro
+    - /run/udev:/run/udev
+    - /etc/udev:/etc/udev
 
     # Workspace
-    - ./xsarm_amd64_install.sh:/xsarm_amd64_install.sh:ro
+    - ./xsarm_amd64_install.sh:/xsarm_amd64_install.sh
 
 
 ##############################
