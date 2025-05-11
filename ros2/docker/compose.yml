@@ -19,7 +19,7 @@ x-workspace-settings: &ws
   build: 
     context: .  
     dockerfile: Dockerfile
-    target: release
+    target: user
   image: hrcnthu/viperx-300s:default
   volumes:
     # GUI
@@ -33,6 +33,7 @@ x-workspace-settings: &ws
     - /etc/udev:/etc/udev:ro
 
     # Workspace
+    - ./xsarm_amd64_install.sh:/xsarm_amd64_install.sh:ro
 
 
 ##############################
